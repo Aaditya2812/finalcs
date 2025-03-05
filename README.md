@@ -1,49 +1,69 @@
-Diary App: Daily Reflections with Python
+# Diary App: Daily Reflections with Python  
 
-youtube demo: https://youtu.be/YSD42gqDRk8?si=FuTsZlNDkupc8C89
+## Video Demo  
+**[Insert Video URL Here]**  
 
-Description:
-Welcome to the Diary App, an Aaditya Baradiya and Niccolò Arcangioli Python command-line application for our final project. The March 4, 2025, project enables users to view past posts, compose daily insights in answer to AI-generated questions from an API externally, and remove them through a Python program. This is far more complex than the course problem sets as we employ the GitHub handles Aaditya2812 and Niccolò Arcangioli to highlight our skillset in handling files, API integration, and testing.
+## Description  
+For Hult's BOS2 section last assignment, **Niccolò Arcangioli** and **Aaditya Baradiya** created the **Reflection Diary App**, a web application developed in Python. Using Flask and Python, this project, dated **March 4, 2025**, with the GitHub handles **Niccolo-Arcangioli** and **Aaditya2812**, provides users with an effective way to write daily reflections.  
 
-As an answer to a daily, question-generating question—like "What was I thinking today?" or a user question based on the Advice Slip API—the Diary App, when run in the terminal, allows users to introspect about themselves. The functionalities of deleting individual entries, saving entries in a text file, drawing and printing previous entries, automatically saving dates, and sending entries through a main script are some of the most significant ones. By executing project.py within a terminal and agreeing to prompts for reflection entry, application users start the app. In order to support a strong and pleasant experience, we learned Python file I/O, API interaction with requests, and pytest testing.
+Users can write, save, view, and delete entries that include **AI-generated quotes** retrieved from an external API for prompts through a basic web interface. This intricate application, far exceeding standard course problem sets, demonstrates our skills in **API integration, file handling, testing, and web design**.  
 
-We set milestones to be able to look back and verify our progress: a straightforward app with manual questions and file storage was a feasible outcome; an API integration of random questions was a more desirable outcome; and a thoroughly tested, well-designed app with stable functionality was the best outcome. Collaborating, we got the best outcome, a bug-free, tested application that supports entry management and daily reflection through collaboration and knowledge transfer.
+The purpose of the Reflection Diary App is to allow users to **monitor their emotional well-being**, attain **mental insight**, and reflect on their daily lives. By answering reflective prompts each day, users can develop a habit of self-reflection, fostering **self-awareness and personal growth**. The app provides an open space to reflect, allowing users to **write their thoughts, revisit previous reflections, and track their progress over time**.  
 
-Files in the project
+## Features  
+- **Web-based interface** for user interaction.  
+- **Daily reflection prompts** sourced from an AI-generated **Advice Slip API**.  
+- **Ability to save and delete entries** for organized journaling.  
+- **Local storage** of diary entries in a structured text file.  
+- **Automated testing** to ensure reliability and stability.  
 
-The project.py
+Upon running `project.py`, a local Flask server launches and can be accessed via a web browser at:  
+📍 **http://127.0.0.1:5000/**  
 
-Pytest for three required functions of project.py is found in this file. It contains: fetch_random_question test: test that fetching a trusted question (or default) by verifying if the function is able to return a non-empty string.
+This tool provides users with a structured space to nurture self-reflection and observe personal growth over time.  
 
-test_save_entry: Tests the save entries as expected by verifying the most recent entry of the diary. The (date, question, and content) input is matched against the text.
+---
 
-test_get_entries: Validates the function works on empty files and returns a list of dictionaries. These tests meet the project's test requirement and verify the app's main feature works as expected.
+## Project Files  
 
+### `project.py`  
+This is the **main Flask web application**, containing three essential functions apart from `main()`:  
 
-test_project.py
+1. **`fetch_random_question()`**  
+   - Uses the `requests` library to retrieve a **random quote** from the **Advice Slip API** ([https://api.adviceslip.com/advice](https://api.adviceslip.com/advice)).  
+   - If the API is unavailable, it defaults to:  
+     > *"What did you learn today?"*  
+   - This ensures users **always** have a prompt, even when offline.  
 
-Pytest for three required functions of project.py is found in this file. It contains: fetch_random_question test: test that fetches a trusted question (or default) by verifying if the function is able to return a non-empty string.
+2. **`save_entry()`**  
+   - Saves user responses (date, question, and reflection) to `diary.txt`.  
+   - Uses `---` as a delimiter for readability and structured parsing.  
 
-test_save_entry: Tests the save entries as expected by verifying the most recent entry of the diary. The (date, question, and content) input is matched against the text.
+3. **`get_entries()`**  
+   - Reads `diary.txt` and parses entries into a structured list of dictionaries (date, question, response).  
+   - Ensures **error handling** in case the file is missing or empty.  
 
-test_get_entries: Validates the function works on empty files and returns a list of dictionaries. These tests meet the project's test requirement and verify the app's main feature works as expected.
+This script provides a **user-friendly web interface** with **Flask**, handling timestamps (`datetime`), API calls (`requests`), and data management.  
 
+---
 
-requirements.txt
+### `test_project.py`  
+This file contains **pytest tests** to validate the core functionality of `project.py`:  
 
-This is a list of pip-installable libraries, found in the project root file.:
-requests
-pytest
-The application will not be testable and runnable without these dependencies.
+- **`test_fetch_random_question()`**  
+  - Ensures the function **always returns a non-empty string**, even if the API fails.  
 
-Design Choices and Reflections
+- **`test_save_entry()`**  
+  - Checks that user responses are correctly stored in `diary.txt`.  
+  - Ensures each entry includes a date, question, and response.  
 
-For ease of use and focus on Python-only coding, we opted for a command-line interface rather than web frameworks in an attempt to fit the needs of the project. We included a backup ("What did you learn today?") for reliability, a design aspect for fault tolerance, though the advise Slip API was used for its free, random advise (reinterpretation as questions). Although we did consider having a JSON or pickle file for better formalized data, it was more practical to stay within diary.txt for simplicity and persistence. We ended up using text to reduce dependency and focus on the key features.
+- **`test_get_entries()`**  
+  - Verifies that diary entries are retrieved correctly.  
+  - Handles both populated and blank diary files to maintain stability.  
 
-Parsing was easy using "---" as the delimiter in diary.txt, though additional care in get_entries was required not to create empty splits. In our project timeline, we chose a plain, functional design over introducing more interactive features, like a loop for repeated entry requests in main. In guaranteeing reliability for core use cases, we focused on functional correctness (e.g., saving, reading, and getting questions) rather than edge cases like file corruption under testing.
+These tests ensure the **stability and reliability** of the application.  
 
-The command-line version of the program is focused on coding ability and meets the Python-only requirement, but is less practical than a graphical interface. We had considered implementing input checking or a menu system to make it more comprehensive, but lacked time. The work was split among members to reply with efficiency: Aaditya worked on testing and user interface logic, and Niccolò file processing and API integration.
+---
 
-
-
-
+### `requirements.txt`  
+This file lists all **required dependencies** for running and testing the application:  
