@@ -1,7 +1,7 @@
 # Diary App: Daily Reflections with Python  
 
 ## Video Demo  
-**[Insert Video URL Here]**  
+**https://youtu.be/YSD42gqDRk8?si=FytKIz7fNwGDCeqH**  
 
 ## Description  
 For Hult's BOS2 section last assignment, **Niccolò Arcangioli** and **Aaditya Baradiya** created the **Reflection Diary App**, a web application developed in Python. Using Flask and Python, this project, dated **March 4, 2025**, with the GitHub handles **Niccolo-Arcangioli** and **Aaditya2812**, provides users with an effective way to write daily reflections.  
