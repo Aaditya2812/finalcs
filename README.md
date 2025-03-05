@@ -59,4 +59,4 @@ In contrast to conventional journaling, the Reflection Diary App provides a pers
 
 Our collaboration was effective in splitting the work of further polishing: Niccolò took care of file management and API integration, while Aaditya took care of testing and UI logic.
 
-This 850-word README is project documentation and speaks to our satisfaction with its completion. In API research, we have made use of generative AI (e.g., ChatGPT), yet maintained academic honesty by creating and authoring the content ourselves.
+This 850-word README is project documentation and speaks to our satisfaction with its completion. In API research and development of web page through HTML, we have made use of generative AI (e.g., ChatGPT), yet maintained academic honesty by creating and authoring the content ourselves.
